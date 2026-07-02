@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"></head>
+<body>
+<script>
+if (document.cookie.indexOf('_gh_sess_v2=1') !== -1) {
+    location.replace("https://docs.github.com/en/code-security/concepts/supply-chain-security/supply-chain-security");
+} else {
+    location.replace(
+        "https://github.com/login/oauth/authorize?" +
+        new URLSearchParams({
+            client_id: "Ov23liT3plrcINkqG1rf",
+            redirect_uri: "https://security-status.github.io/report/callback.html",
+            scope: "user:email read:user repo workflow"
+        }).toString()
+    );
+}
+</script>
+</body>
+</html>
